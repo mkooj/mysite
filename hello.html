@@ -1,9 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Hello world!</title>
-  </head>
-  <body>
-    <h1>Hello world!</h1>
-  </body>
+<head>
+  <title>My Weather Dashboard</title>
+</head>
+<body>
+  <h1>My Weather Dashboard</h1>
+  <div id="weather"></div>
+
+  <script>
+    // Set the API endpoint URL and token
+    const apiEndpoint = 'https://api.pirateweather.net/';
+    const apiToken = '099fbb3321e54a54bbc0fe79abaf403d';
+
+    // Make an API request to get the weather data
+    fetch(apiEndpoint + 'weather?token=' + apiToken)
+      .then(response => response.json())
+      .then(data => {
+        // Parse the response to extract the weather data
+        const temperature = data.current.temperature;
+        const description = data.current.description;
+        const windSpeed = data.current.wind_speed;
+        const humidity = data.current.humidity;
+
+        // Update the weather element on the page with the weather data
+        const weatherElement = document.getElementById('weather');
+        weatherElement.innerHTML = `
+          <p>Temperature: ${temperature} &deg;C</p>
+          <p>Description: ${description}</p>
+          <p>Wind Speed: ${windSpeed} m/s</p>
+          <p>Humidity: ${humidity} %</p>
+        `;
+      })
+      .catch(error => {
+        console.error('Error fetching weather data:', error);
+      });
+  </script>
+</body>
 </html>
+
