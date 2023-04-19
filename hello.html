@@ -9,11 +9,16 @@
 
   <script>
     // Set the API endpoint URL and token
-    const apiEndpoint = 'https://api.pirateweather.net/';
+    const apiEndpoint = 'https://api.pirateweather.net/weather';
     const apiToken = '099fbb3321e54a54bbc0fe79abaf403d';
+    const latitude = '38.846226';
+    const longitude = '-77.306374';
+
+    // Construct the API request URL
+    const apiUrl = `${apiEndpoint}?token=${apiToken}&lat=${latitude}&lon=${longitude}`;
 
     // Make an API request to get the weather data
-    fetch(apiEndpoint + 'weather?token=' + apiToken)
+    fetch(apiUrl)
       .then(response => response.json())
       .then(data => {
         // Parse the response to extract the weather data
@@ -37,4 +42,3 @@
   </script>
 </body>
 </html>
-
