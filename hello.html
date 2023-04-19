@@ -18,7 +18,7 @@
     const apiUrl = `${apiEndpoint}?token=${apiToken}&lat=${latitude}&lon=${longitude}`;
 
     // Make an API request to get the weather data
-    fetch(apiUrl)
+     fetch(apiUrl, { mode: 'cors' })
       .then(response => response.json())
       .then(data => {
         // Parse the response to extract the weather data
