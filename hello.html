@@ -6,39 +6,8 @@
 <body>
   <h1>My Weather Dashboard</h1>
   <div id="weather"></div>
+  <div id="openweathermap-widget-11"></div>
+  <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script><script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 11,cityid: '2643743',appid: '7cd6d2d67b8454941701700d04974f0b',units: 'imperial',containerid: 'openweathermap-widget-11',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
 
-  <script>
-    // Set the API endpoint URL and token
-    const apiEndpoint = 'https://api.pirateweather.net/weather';
-    const apiToken = '099fbb3321e54a54bbc0fe79abaf403d';
-    const latitude = '38.846226';
-    const longitude = '-77.306374';
-
-    // Construct the API request URL
-    const apiUrl = `${apiEndpoint}?token=${apiToken}&lat=${latitude}&lon=${longitude}`;
-
-    // Make an API request to get the weather data
-     fetch(apiUrl, { mode: 'cors' })
-      .then(response => response.json())
-      .then(data => {
-        // Parse the response to extract the weather data
-        const temperature = data.current.temperature;
-        const description = data.current.description;
-        const windSpeed = data.current.wind_speed;
-        const humidity = data.current.humidity;
-
-        // Update the weather element on the page with the weather data
-        const weatherElement = document.getElementById('weather');
-        weatherElement.innerHTML = `
-          <p>Temperature: ${temperature} &deg;C</p>
-          <p>Description: ${description}</p>
-          <p>Wind Speed: ${windSpeed} m/s</p>
-          <p>Humidity: ${humidity} %</p>
-        `;
-      })
-      .catch(error => {
-        console.error('Error fetching weather data:', error);
-      });
-  </script>
-</body>
+  
 </html>
